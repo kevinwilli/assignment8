@@ -56,6 +56,12 @@ public class WordCountDriver {
         // if there is an error, print an error message and exit the program
 
         try {
+            // Create a new file in the same folder as the original file
+            // Get the path to the folder
+            // This is a relative path, so it will work on any computer
+            Path folderLocation = Paths.get(WordCountDriver.class.getResource("/").toURI());
+            // Create a new path to the new file
+            Path newFileLocation = Paths.get(folderLocation.toString(), "output.txt");
             writeData(words, "output.txt");
         } catch (URISyntaxException | IOException e) {
             e.printStackTrace();
